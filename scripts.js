@@ -50,10 +50,6 @@ function Elements(data) {
     main.appendChild(div);
     let desc = document.createElement("p");
     desc.classList.add("desc");
-    // let heading=document.createElement('h1');
-    // heading.classList.add('heading');
-    // heading.innerHTML=data.strMeal;
-    // main.appendChild(heading)
     desc.innerHTML = `<h2>Instructions for making ${data.strMeal}</h2><br>${data.strInstructions}`;
     let it = document.createElement("p");
     it.innerHTML = `<h2>Ingredients need to make ${data.strMeal} </h2><br> ${data.strIngredient1}<br>${data.strIngredient2}<br>${data.strIngredient3}<br>${data.strIngredient4}<br>${data.strIngredient5}<br>${data.strIngredient6}<br>${data.strIngredien7}<br>${data.strIngredient8}<br>${data.strIngredien9}<br>${data.strIngredient10}<br>`;
@@ -63,7 +59,9 @@ function Elements(data) {
 }
 
 async function RandomMeal() {
-  const resp = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+  const resp = await fetch(
+    "https://www.themealdb.com/api/json/v1/1/random.php"
+  );
   if (resp.ok) {
     const data = await resp.json();
     // console.log(data.meals);
@@ -103,7 +101,7 @@ function AddingItem(data) {
     img.alt = data.strMeal;
     let desc = document.createElement("p");
     desc.classList.add("desc");
-    desc.innerHTML = `<h2>Instructions for making ${data.strMeal}</h2><br>${data.strInstructions}`;
+    desc.innerHTML = `<h2>Instructions for making ${data.strMeal} <br><a href="${data.strYoutube}" target="_blank">Youtube Link</a></h2><br>${data.strInstructions}`;
     let it = document.createElement("p");
     it.innerHTML = `<h2>Ingredients for ${data.strMeal} </h2><br> ${data.strIngredient1}<br>${data.strIngredient2}<br>${data.strIngredient3}<br>${data.strIngredient4}<br>${data.strIngredient5}<br>${data.strIngredient6}<br>${data.strIngredien7}<br>${data.strIngredient8}<br>${data.strIngredien9}<br>${data.strIngredient10}<br>`;
     main.appendChild(it);
